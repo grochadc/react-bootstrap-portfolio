@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { Container } from "react-bootstrap";
+
+import Navigation from "./components/navigation.js";
+import RadioPage from "./components/pages/radio.js";
+import VideoPage from "./components/pages/video.js";
+import FotografiaPage from "./components/pages/fotografia.js";
+import HomePage from "./components/pages/home.js";
+
+import "./App.css";
+import "bootswatch/dist/lux/bootstrap.min.css";
+
+const App = () => (
+  <Router>
+    <Container className="p-3">
+      <Navigation
+        links={[
+          { title: "Video", link: "video" },
+          { title: "Fotografia", link: "fotografia" },
+          { title: "Radio", link: "radio" }
+        ]}
+      />
+      <Switch>
+        <Route path="/radio">
+          <RadioPage />
+        </Route>
+        <Route path="/video">
+          <VideoPage />
+        </Route>
+        <Route path="/fotografia">
+          <FotografiaPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Container>
+  </Router>
+);
 
 export default App;
