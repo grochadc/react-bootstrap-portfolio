@@ -1,7 +1,8 @@
 import React from "react";
 import { Jumbotron, Alert } from "react-bootstrap";
 import styled from "styled-components";
-import VideoCarousel from "../videoCarousel";
+import ReactPlayer from "react-player";
+import Carousel from "../carousel";
 
 const videoUrls = [
   "https://vimeo.com/355028451",
@@ -21,7 +22,10 @@ const StyledAlert = styled(Alert)`
 const Page = () => (
   <Jumbotron className="text-center">
     <h1 className="text-center">Video</h1>
-    <VideoCarousel videos={videoUrls} />
+    <Carousel
+      links={videoUrls}
+      render={currentUrl => <ReactPlayer url={currentUrl} width="100%" light />}
+    />
     <StyledAlert variant="dark" className="text-center">
       Para más videos visita mi{" "}
       <strong>
