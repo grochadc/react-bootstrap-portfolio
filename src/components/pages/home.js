@@ -32,8 +32,8 @@ const StyledFigureCaption = styled(Figure.Caption)`
 `;
 
 const Page = () => (
-  <Container>
-    <Jumbotron className="text-center">
+  <Jumbotron className="text-center">
+    <Container>
       <Row>
         <Col>
           <Figure className="text-center">
@@ -97,8 +97,8 @@ const Page = () => (
           </StyledListGroup>
         </Col>
       </Row>
-    </Jumbotron>
-  </Container>
+    </Container>
+  </Jumbotron>
 );
 
 export default Page;
